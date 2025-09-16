@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Latte/Mocha Color Scheme */
+    --background: 35 20% 98%;
+    --foreground: 25 40% 25%;
+
+    --card: 35 30% 96%;
+    --card-foreground: 25 40% 25%;
+
+    --popover: 35 30% 96%;
+    --popover-foreground: 25 40% 25%;
+
+    --primary: 30 45% 40%;
+    --primary-foreground: 35 20% 98%;
+
+    --secondary: 35 25% 88%;
+    --secondary-foreground: 25 40% 30%;
+
+    --muted: 35 20% 90%;
+    --muted-foreground: 25 20% 55%;
+
+    --accent: 32 35% 75%;
+    --accent-foreground: 25 40% 30%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 35 20% 98%;
+
+    --border: 35 15% 85%;
+    --input: 35 15% 85%;
+    --ring: 30 45% 40%;
+
+    /* Custom Coffee Gradients */
+    --gradient-latte: linear-gradient(135deg, hsl(35, 30%, 96%) 0%, hsl(32, 35%, 75%) 100%);
+    --gradient-mocha: linear-gradient(135deg, hsl(30, 45%, 40%) 0%, hsl(25, 50%, 35%) 100%);
+    --gradient-cream: linear-gradient(180deg, hsl(35, 25%, 92%) 0%, hsl(35, 20%, 88%) 100%);
+    
+    /* Smooth Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Coffee Shadows */
+    --shadow-latte: 0 4px 20px hsl(30 45% 40% / 0.1);
+    --shadow-mocha: 0 8px 30px hsl(30 45% 40% / 0.15);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mocha Theme */
+    --background: 25 30% 12%;
+    --foreground: 35 20% 88%;
+
+    --card: 25 25% 15%;
+    --card-foreground: 35 20% 88%;
+
+    --popover: 25 25% 15%;
+    --popover-foreground: 35 20% 88%;
+
+    --primary: 32 40% 65%;
+    --primary-foreground: 25 30% 12%;
+
+    --secondary: 25 20% 20%;
+    --secondary-foreground: 35 20% 88%;
+
+    --muted: 25 15% 18%;
+    --muted-foreground: 35 15% 65%;
+
+    --accent: 30 35% 45%;
+    --accent-foreground: 35 20% 88%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 35 20% 88%;
+
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 32 40% 65%;
+
+    /* Dark Coffee Gradients */
+    --gradient-latte: linear-gradient(135deg, hsl(25, 25%, 15%) 0%, hsl(25, 20%, 20%) 100%);
+    --gradient-mocha: linear-gradient(135deg, hsl(30, 35%, 45%) 0%, hsl(32, 40%, 65%) 100%);
+    --gradient-cream: linear-gradient(180deg, hsl(25, 20%, 18%) 0%, hsl(25, 15%, 15%) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-lexend;
+  }
+  
+  .gradient-latte {
+    background: var(--gradient-latte);
+  }
+  
+  .gradient-mocha {
+    background: var(--gradient-mocha);
+  }
+  
+  .gradient-cream {
+    background: var(--gradient-cream);
+  }
+  
+  .shadow-latte {
+    box-shadow: var(--shadow-latte);
+  }
+  
+  .shadow-mocha {
+    box-shadow: var(--shadow-mocha);
+  }
+}
