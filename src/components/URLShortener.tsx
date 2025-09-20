@@ -5,6 +5,8 @@ import { Card } from "@/components/ui/card";
 import { Copy, Link, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+const apiURL = import.meta.env.VITE_API_ENDPOINT
+
 const URLShortener = () => {
   const [url, setUrl] = useState("");
   const [shortenedUrl, setShortenedUrl] = useState("");
@@ -41,15 +43,25 @@ const URLShortener = () => {
 
     setIsLoading(true);
     
-    // Simulate API call with a simple hash-based shortener
-    setTimeout(() => {
-      const hash = Math.random().toString(36).substring(2, 8);
-      setShortenedUrl(`sturl.co/${hash}`);
-      setIsLoading(false);
-      toast({
-        title: "URL shortened successfully!",
+    try{
+      const response = await fetch(`${apiURL}/shorten`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({url: url})
       });
-    }, 1000);
+
+      if(!response.ok){
+        throw new Error(`Server error: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(data)
+      setShortenedUrl(data.short_url);
+      console.log(shortenedUrl)
+    }catch(err){
+      console.error("API issue",err)
+    }finally{
+      setIsLoading(false)
+    }
   };
 
   const handleCopy = async () => {
@@ -65,7 +77,7 @@ const URLShortener = () => {
         title: "Failed to copy",
         variant: "destructive",
       });
-    }
+    } 
   };
 
   return (
