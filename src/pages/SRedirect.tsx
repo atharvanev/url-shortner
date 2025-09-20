@@ -12,7 +12,7 @@ export default function SRedirect() {
     }
 
     // Redirect the browser to the API route
-    window.location.href = `/api/s/${id}`;
+    window.location.href = `/${id}`;
   }, [id]);
 
   return <p>Redirecting...</p>;
