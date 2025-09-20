@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 
-const apiURL = process.env.VITE_API_ENDPOINT; // AWS Lambda endpoint
+const apiURL = process.env.API_ENDPOINT; // AWS Lambda endpoint
 
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
